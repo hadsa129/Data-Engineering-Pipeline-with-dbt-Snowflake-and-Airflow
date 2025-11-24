@@ -1,0 +1,13 @@
+data_engineering_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "hw25569.eu-central-2.aws"
+      user: "HADILSAHRAOUI129"
+      password: "Hadil.sahraoui2001"
+      role: "dbt_role"
+      database: "dbt_db"
+      warehouse: "dbt_warehouse"
+      schema: "dbt_schema"
+      threads: 4

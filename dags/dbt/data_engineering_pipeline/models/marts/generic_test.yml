@@ -1,0 +1,20 @@
+models:
+  - name: fct_orders
+    description: "Fact table for orders with aggregated item information"
+    columns:
+      - name: order_key
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_tpch_orders')
+              field: order_key
+              severity: warn # Ensure order_key exists in stg_tpch_orders
+              # This test ensures referential integrity between fct_orders and stg_tpch_orders 
+      - name: order_status 
+        tests: 
+          - accepted_values:
+              values: ['O', 'F', 'P'] # Valid order statuses: Open, Filled, Partial
+
+        
+ 

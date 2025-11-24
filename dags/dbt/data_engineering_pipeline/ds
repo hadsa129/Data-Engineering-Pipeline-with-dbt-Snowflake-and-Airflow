@@ -1,0 +1,15 @@
+cat > ~/.dbt/profiles.yml << 'EOL'
+data_engineering_pipeline:
+  outputs:
+    dev:
+      type: snowflake
+      account: "hw25569.eu-central-2.aws"  # Using account locator with region
+      user: "HADILSAHRAOUI129"
+      password: "Hadil.sahraoui2001"
+      role: "dbt_role"  # Using ACCOUNTADMIN for initial setup
+      warehouse: "dbt_warehouse"
+      database: "dbt_db"
+      schema: "dbt_schema"
+      threads: 4
+  target: dev
+EOL
